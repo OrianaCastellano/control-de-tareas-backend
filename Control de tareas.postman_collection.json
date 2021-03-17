@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "a2b68e6a-d6fc-441f-8ed2-990745e45a06",
+		"name": "Control de tareas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tareas",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "{{$randomFullName}}",
+									"type": "text"
+								},
+								{
+									"key": "date_end",
+									"value": "{{$randomDateFuture}}",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremLines}}",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/home/metodity/Descargas/qr_42.pdf",
+										"/home/metodity/Descargas/qr_40.pdf"
+									]
+								},
+								{
+									"key": "date_recordatory",
+									"value": "{{$randomDateRecent}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "{{$randomFullName}}",
+									"type": "text"
+								},
+								{
+									"key": "date_end",
+									"value": "{{$randomDateFuture}}",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremLines}}",
+									"type": "text"
+								},
+								{
+									"key": "files_new",
+									"type": "file",
+									"src": [
+										"/home/metodity/Descargas/qr_42.pdf",
+										"/home/metodity/Descargas/qr_40.pdf"
+									]
+								},
+								{
+									"key": "date_recordatory",
+									"value": "{{$randomDateRecent}}",
+									"type": "text"
+								},
+								{
+									"key": "files_delete",
+									"value": "[12,13]",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "16",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task Position",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": [\n        {\n            \"id\": 16,\n            \"position\": 0\n        },\n        {\n            \"id\": 17,\n            \"position\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task/position",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task Pinned",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": [\n        {\n            \"id\": 16,\n            \"pinned\": true\n        },\n        {\n            \"id\": 17,\n            \"pinned\": false\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task/pinned",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"pinned"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task Finish",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task\": [\n        {\n            \"id\": 16,\n            \"finish\": true\n        },\n        {\n            \"id\": 17,\n            \"finish\": true\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task/finish",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"finish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task By Text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task/text?text=Garry",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"text"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "Garry"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task/id/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"id",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task/id/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"id",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Tag By Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"task_id\": 15,\n    \"tags\": [\n        {\n            \"id\": 3,\n            \"new\": true\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/task/tag",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"task",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Etiquetas",
+			"item": [
+				{
+					"name": "Create Tag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tag",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tag",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"title\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tag",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tag",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tag/id/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag",
+								"id",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/tag",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Oriana Catellano\",\n    \"email\": \"orianacastella@gmail.com\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/user/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/admin/profile",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"orianacastella@gmail.com\",\n    \"password\":\"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/user/signin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/user/stats",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUsIm5hbWUiOiJMdWlzIEFyYXVqbyIsImVtYWlsIjoibHVpc2VkdWFyZG9hYjk3QGdtYWlsLmNvbSIsImlhdCI6MTYxNTkwNDMyMSwiZXhwIjoxNjE2MTYzNTIxfQ.OXB2aW7vyQZIESgYkttF5LUBT_Vho10y3Fx777jwbIc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
